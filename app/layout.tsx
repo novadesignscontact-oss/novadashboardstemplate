@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Poppins, Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -19,6 +19,20 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  display: "swap",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  display: "swap",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
+      <body className={`${geistSans.className} ${poppins.variable} ${inter.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
