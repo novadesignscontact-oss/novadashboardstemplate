@@ -17,10 +17,7 @@ import Image from "next/image";
 export default async function DashboardPage() {
   const supabase = await createClient();
 
-  const { data, error } = await supabase.auth.getClaims();
-  if (error || !data?.claims) {
-    redirect("/auth/login");
-  }
+  
 
   return (
     <div className="flex min-h-screen bg-[#F4F5FA]">
